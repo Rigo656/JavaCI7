@@ -12,12 +12,18 @@ public class Radio {
         return currentVolume;
     }
 
-    public void setCurrentRadioStation(int CurrentRadioStation) {
-        this.currentRadioStation = CurrentRadioStation;
+    public void setCurrentRadioStation(int currentRadioStation) {
+        if (currentRadioStation > 9) {
+            return;
+        }
+        if (currentRadioStation < 0) {
+            return;
+        }
+        this.currentRadioStation = currentRadioStation;
     }
 
-    public void setCurrentVolume(int CurrentVolume) {
-        this.currentVolume = CurrentVolume;
+    public void setCurrentVolume(int currentVolume) {
+        this.currentVolume = currentVolume;
     }
 
     public void nextStation() {

@@ -18,6 +18,30 @@ public class RadioTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void selectStationUnderLimit() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadioStation(11);
+
+        int expected = 0;
+        int actual = rad.getCurrentRadioStation();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void selectStationBelowLimit() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadioStation(-1);
+
+        int expected = 0;
+        int actual = rad.getCurrentRadioStation();
+
+        assertEquals(expected, actual);
+    }
+
 
     @Test
     public void switchToNextStation() {
