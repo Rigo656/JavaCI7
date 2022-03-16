@@ -154,7 +154,7 @@ public class RadioTest {
 
     @Test
     public void setRadioParameters() {
-        Radio rad = new Radio(19);
+        Radio rad = new Radio(20);
 
         rad.setCurrentRadioStation(17);
 
@@ -166,8 +166,19 @@ public class RadioTest {
     public void setRadioParametersAndSwitchToNext() {
         Radio rad = new Radio(24);
 
-        rad.setCurrentRadioStation(24);
+        rad.setCurrentRadioStation(23);
         rad.nextStation();
+
+        assertEquals(0, rad.getCurrentVolume());
+
+    }
+
+    @Test
+    public void setRadioParametersAndSwitchToPrev() {
+        Radio rad = new Radio(15);
+
+        rad.setCurrentRadioStation(0);
+        rad.prevStation();
 
         assertEquals(0, rad.getCurrentVolume());
 

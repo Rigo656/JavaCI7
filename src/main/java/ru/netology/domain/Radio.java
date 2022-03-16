@@ -1,7 +1,7 @@
 package ru.netology.domain;
 
 public class Radio {
-    private int numberOfRadioStations = 9;
+    private int numberOfRadioStations = 10;
     private int currentRadioStation;
     private int currentVolume;
 
@@ -12,16 +12,9 @@ public class Radio {
         this.numberOfRadioStations = numberOfRadioStations;
     }
 
-    public int getCurrentRadioStation() {
-        return currentRadioStation;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
 
     public void setCurrentRadioStation(int currentRadioStation) {
-        if (currentRadioStation > numberOfRadioStations) {
+        if (currentRadioStation > numberOfRadioStations - 1) {
             return;
         }
         if (currentRadioStation < 0) {
@@ -30,13 +23,10 @@ public class Radio {
         this.currentRadioStation = currentRadioStation;
     }
 
-    public void setCurrentVolume(int currentVolume) {
-        this.currentVolume = currentVolume;
-    }
 
     public void nextStation() {
-        if (currentRadioStation < numberOfRadioStations) {
-            currentRadioStation += +1;
+        if (currentRadioStation < numberOfRadioStations - 1) {
+            currentRadioStation++;
         } else {
             currentRadioStation = 0;
         }
@@ -44,15 +34,15 @@ public class Radio {
 
     public void prevStation() {
         if (currentRadioStation > 0) {
-            currentRadioStation += -1;
+            currentRadioStation--;
         } else {
-            currentRadioStation = numberOfRadioStations;
+            currentRadioStation = numberOfRadioStations - 1;
         }
     }
 
     public void increaseVolume() {
         if (currentVolume < 100) {
-            currentVolume += +1;
+            currentVolume ++;
         } else {
             currentVolume = 100;
         }
@@ -60,9 +50,23 @@ public class Radio {
 
     public void decreaseVolume() {
         if (currentVolume > 0) {
-            currentVolume += -1;
+            currentVolume --;
         } else {
             currentVolume = 0;
         }
     }
+
+
+    public int getCurrentRadioStation() {
+        return currentRadioStation;
+    }
+
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public void setCurrentVolume(int currentVolume) {
+        this.currentVolume = currentVolume;
+    }
+
 }
